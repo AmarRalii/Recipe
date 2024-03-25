@@ -6,7 +6,7 @@ import axios from "axios";
 import Meal from "../Meal";
 
 export default function CategoryMeals() {
-  const [Catmeal, setCatMeal] = useState([]); // Initialize as null to handle loading state
+  const [Catmeal, setCatMeal] = useState([]); 
   let { strCategory } = useParams();
 
   async function getCatMeal() {

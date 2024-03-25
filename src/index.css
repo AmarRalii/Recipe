@@ -72,18 +72,24 @@ body{
   opacity: 1;
  
 }
-/* Styles for smaller screens */
+
 @media (max-width: 768px) {
   .col-md-3 {
-    flex: 0 0 50%; /* Two columns on smaller screens */
+    flex: 0 0 25%; 
     max-width: 50%;
   }
 }
 
-/* Styles for even smaller screens */
 @media (max-width: 576px) {
   .col-md-3 {
-    flex: 0 0 100%; /* Single column on extra small screens */
+    flex: 0 0 50%; 
+    max-width: 75%;
+  }
+}
+
+@media (max-width: 370px) {
+  .col-md-3 {
+    flex: 0 0 75%; 
     max-width: 100%;
   }
 }
@@ -111,4 +117,8 @@ form{
   bottom: 15%;
   left: 47%;
 
+}
+
+.navbar{
+  z-index: 9999;
 }
