@@ -48,10 +48,7 @@ function App() {
           path: "area/mealListByArea/:id/mealDetails/:id",
           element: <MealDetails></MealDetails>,
         },
-        {
-          path: "Recipe/",
-          element: <Home></Home>,
-        },
+        
         { path: "*", element: <NotFound></NotFound> },
       ],
     },
