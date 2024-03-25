@@ -28,10 +28,12 @@ export default function CategoryMeals() {
   }, [strCategory]);
 
   return (
-    <div className="row">
+    <div className="container">
+      <div className="row">
       {Catmeal.map((meal) => (
         <Meal key={meal.idMeal} meal={meal} />
       ))}
+    </div>
     </div>
   );
 }
