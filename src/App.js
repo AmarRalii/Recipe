@@ -52,6 +52,7 @@ function App() {
         },
         
         { path: "Recipe/", element: <Home></Home> },
+        { path: "Recipe/mealDetails/:id", element: <MealDetails></MealDetails> },
         { path: "*", element: <NotFound></NotFound> },
       ],
     },
