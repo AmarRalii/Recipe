@@ -1,11 +1,13 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Loading from './../Loading';
 
 export default function Category() {
   const [categoryList, setCategoryList] = useState([]);
-
+  const [loading, setLoading] = useState(false);
   async function getAllCategories() {
+    setLoading(true);
     try {
       const response = await axios.get('https://www.themealdb.com/api/json/v1/1/categories.php?c=list');
       if (response?.data?.categories) {
@@ -13,6 +15,9 @@ export default function Category() {
       }
     } catch (error) {
       console.error('Error fetching categories:', error);
+    }
+    finally {
+      setLoading(false);
     }
   }
 
@@ -22,7 +27,7 @@ export default function Category() {
 
   return (
     <div className="container">
-
+{loading && <Loading></Loading>}
 
     <div className='row  '>
       {categoryList.map((cat) => (

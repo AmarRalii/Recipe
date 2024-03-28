@@ -1,11 +1,13 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
+import Loading from './../Loading';
 
 export default function Area() {
   const [areaList, setareaList] = useState([]);
-
+  const [loading, setLoading] = useState(false);
   async function getAllArea() {
+    setLoading(true);
     try {
       const response = await axios.get(
         `https://www.themealdb.com/api/json/v1/1/list.php?a=list`
@@ -16,6 +18,9 @@ export default function Area() {
     } catch (error) {
       console.error("Error fetching categories:", error);
     }
+    finally {
+      setLoading(false);
+    }
   }
 
   useEffect(() => {
@@ -23,6 +28,7 @@ export default function Area() {
   }, []);
   return (
     <div className="container">
+       {loading && <Loading />}
     <div className="row p-5">
       {areaList.map((area) => (
         <div key={area.strArea} className="col-md-3 col-sm-6 col-xs-12 text-center">

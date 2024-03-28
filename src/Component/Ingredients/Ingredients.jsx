@@ -1,11 +1,13 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Loading from './../Loading';
 
 export default function Ingredients() {
   const [ingredientsList, setIngredientsList] = useState([]);
-
+  const [loading,setLoading] = useState(false)
   async function getAllIngredients() {
+    setLoading(true)
     try {
       const response = await axios.get('https://www.themealdb.com/api/json/v1/1/list.php?i=list');
       if (response?.data?.meals) {
@@ -13,6 +15,9 @@ export default function Ingredients() {
       }
     } catch (error) {
       console.error("Error fetching ingredients:", error);
+    }
+    finally{
+      setLoading(false)
     }
   }
 
@@ -22,6 +27,7 @@ export default function Ingredients() {
 
   return (
     <div className='container'>
+      {loading && <Loading></Loading>}
       <div className="row py-5">
         {ingredientsList.map((inger) => (
           <div key={inger.idIngredient} className="col-md-3 col-sm-6 col-xs-12 text-center">

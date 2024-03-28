@@ -12,6 +12,7 @@ import CategoryMeals from "./Component/Category/CategoryMeals";
 import MealListByArea from "./Component/Area/MealListByArea";
 import IngredientsMeals from "./Component/Ingredients/IngredientsMeals";
 
+
 function App() {
   const routes = createBrowserRouter([
     {
@@ -21,6 +22,7 @@ function App() {
         { index: true, element: <Home></Home> },
         { path: "category", element: <Category></Category> },
         { path: "area", element: <Area></Area> },
+
         { path: "ingredients", element: <Ingredients></Ingredients> },
         { path: "contact", element: <Contact></Contact> },
         { path: "mealDetails/:id", element: <MealDetails></MealDetails> },
@@ -49,6 +51,7 @@ function App() {
           element: <MealDetails></MealDetails>,
         },
         
+        { path: "Recipe/", element: <Home></Home> },
         { path: "*", element: <NotFound></NotFound> },
       ],
     },
